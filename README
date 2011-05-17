@@ -1,0 +1,2 @@
+A controller for the Vacuum Fluorecent Display Futaba FV651G, available at Pollin (www.pollin.de), using an ATTINY2313 µC and 4094 shift registers.
+Based on Jeroen Domburgs work: http://spritesmods.com/?art=vfdcontroller
