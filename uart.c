@@ -10,8 +10,11 @@ volatile uint16_t text[BUFFLEN];
 
 volatile uint16_t scrollpos;
 
+// Value of Digit 1G (the symbols)
+volatile uint8_t special;
+
 //Initial text
-char inittext[] PROGMEM="Habe nun, ach! Philosophie,    Juristerei und Medizin,     Und leider auch Theologie     Durchaus studiert, mit heißem Bemühn.    Da steh' ich nun, ich armer Tor,        Und bin so klug als wie zuvor!      Heiße Magister, heiße Doktor gar,       Und ziehe schon an die zehen Jahr'      Herauf, herab und quer und krumm     Meine Schüler an der Nase herum -    Und sehe, daß wir nichts wissen können!   Das will mir schier das Herz verbrennen.     Zwar bin ich gescheiter als alle die Laffen,       Doktoren, Magister, Schreiber und Pfaffen;    Mich plagen keine Skrupel noch Zweifel,    Fürchte mich weder vor Hölle noch Teufel -    Dafür ist mir auch alle Freud' entrissen,     Bilde mir nicht ein, was Rechts zu wissen,    Bilde mir nicht ein, ich könnte was lehren,     Die Menschen zu bessern und zu bekehren.    Auch hab' ich weder Gut noch Geld,    Noch Ehr' und Herrlichkeit der Welt;   Es möchte kein Hund so länger leben!   Drum hab' ich mich der Magie ergeben,   Ob mir durch Geistes Kraft und Mund    Nicht manch Geheimnis würde kund;    Daß ich nicht mehr mit sauerm Schweiß   Zu sagen brauche, was ich nicht weiß;    Daß ich erkenne, was die Welt   Im Innersten zusammenhält,   Schau' alle Wirkenskraft und Samen,   Und tu' nicht mehr in Worten kramen.         ";
+char inittext[] PROGMEM="Habe nun, ach! Philosophie,    Juristerei und Medizin,     Und leider auch Theologie     Durchaus studiert, mit heißem Bemühn.    Da steh' ich nun, ich armer Tor,        Und bin so klug als wie zuvor!      ";
 
 uint16_t font[] PROGMEM={
     0b00000000000000, //sp
@@ -125,6 +128,8 @@ void inittxt(void) {
 	//seg <<= 1;
 	//text[t++]=0x0F0F;
     } while (t<16);
+    
+    special = 0b100; // dcc Symbol
 
 //     int t=0;
 //     char c;
@@ -140,13 +145,16 @@ void inittxt(void) {
 //according to the latest scrollpos- and text[]-contents.
 //Includes an overlap of OVERLAP spaces between end and begin of scrolling text
 uint16_t getcharat(char pos) {
-    uint8_t c = pgm_read_byte(&inittext[scrollpos + pos]);
-    if(!c){
-      scrollpos = 0;
-      c = 32;
-    }
-    return pgm_read_word(&font[(int)(c-32)]);
-    //return text[(int) pos];
+  if(pos == 10){
+    return special << 8;
+  }
+  uint8_t c = pgm_read_byte(&inittext[scrollpos + pos]);
+  if(!c){
+    scrollpos = 0;
+    c = 32;
+  }
+  return pgm_read_word(&font[(int)(c-32)]);
+  //return text[(int) pos];
 }
 
 //Timer interrupt which advances the scroll position by one.
