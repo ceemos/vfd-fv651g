@@ -27,18 +27,12 @@ void initio(void) {
     DDRB=(1<<PWM_OUT)|(1<<FIL_ENA);
     PORTB=0;
     
-    UCSRA=0;
-    UCSRB=0x98; //enable tx, rx and rx int
-    UCSRC=0x06; //8n1
-    UBRRL=0x5; //115200 baud
-    
     TCCR1A=0;
     TCCR1B=(1<<WGM12)|(1<<CS12)|(1<<CS10);
     //Timer1 ticks at 11KHz.
     OCR1A=1100/3; //1/3 second
     TIMSK=(1<<OCIE1A);
-    
-    sei();
+
 }
 
 //Shift one bit into the shiftregister chain.

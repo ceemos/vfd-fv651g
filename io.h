@@ -1,7 +1,7 @@
 //This program is licensed under the GPLv3; see license.txt for more info.
 //Copyright 2007 Sprite_tm
 
-#define F_CPU 1000000
+#define F_CPU 12000000
 #include <stdint.h>
 
 void initio(void);

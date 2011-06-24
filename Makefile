@@ -8,7 +8,7 @@
 MCU = attiny2313
 FORMAT = ihex
 TARGET = vfd_starburst
-SRC = main.c io.c uart.c
+SRC = main.c io.c uart.c usbdrv/usbdrvasm.S usbdrv/usbdrv.o
 DEPS= 
 ASRC = 
 OPT = s

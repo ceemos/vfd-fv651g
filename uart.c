@@ -3,10 +3,10 @@
 #include <avr/pgmspace.h>
 #include <stdint.h>
 
-#define BUFFLEN 16
+#include "uart.h"
 
 //Buffer for incoming text
-volatile uint16_t text[BUFFLEN];
+volatile uint8_t text[BUFFLEN];
 
 volatile uint16_t scrollpos;
 
@@ -14,7 +14,7 @@ volatile uint16_t scrollpos;
 volatile uint8_t special;
 
 //Initial text
-char inittext[] PROGMEM="Habe nun, ach! Philosophie,    Juristerei und Medizin,     Und leider auch Theologie     Durchaus studiert, mit heißem Bemühn.    Da steh' ich nun, ich armer Tor,        Und bin so klug als wie zuvor!      ";
+char inittext[] PROGMEM="usbVFD: FV651g";
 
 uint16_t font[] PROGMEM={
     0b00000000000000, //sp
@@ -117,27 +117,16 @@ uint16_t font[] PROGMEM={
 
 //Routine to init the text subsystem
 void inittxt(void) {
+
     int t=0;
     char c;
-//     int seg = 1;
-    
+    //Copypaste inittext to text buffer
     do {
 	c=pgm_read_byte(&inittext[t]);
-	text[t]=pgm_read_word(&font[(int)(c-32)]);
-	t++;
-	//seg <<= 1;
-	//text[t++]=0x0F0F;
-    } while (t<16);
+	text[t++]=pgm_read_word(&font[(int)(c-32)]);
+    } while (c!=0);
     
     special = 0b100; // dcc Symbol
-
-//     int t=0;
-//     char c;
-//     //Copypaste inittext to text buffer
-//     do {
-// 	c=pgm_read_byte(&inittext[t]);
-// 	text[t++]=pgm_read_word(&font[(int)(c-32)]);
-//     } while (c!=0);
 
 }
 
@@ -148,7 +137,7 @@ uint16_t getcharat(char pos) {
   if(pos == 10){
     return special << 8;
   }
-  uint8_t c = pgm_read_byte(&inittext[scrollpos + pos]);
+  uint8_t c = text[pos + scrollpos];
   if(!c){
     scrollpos = 0;
     c = 32;
@@ -160,21 +149,6 @@ uint16_t getcharat(char pos) {
 //Timer interrupt which advances the scroll position by one.
 ISR(TIMER1_COMPA_vect) {
     scrollpos++;
-}
-
-//Uart receive interrupt
-ISR(USART_RX_vect) { 
-//     static unsigned int wpos=BUFFLEN;
-//     unsigned char c;
-//     c=UDR;
-//     //Black text-handling magic ^_^
-//     if (c<32 && wpos==0) return;
-//     if (wpos==0) scrollpos=0;
-//     text[wpos]=c;
-//     if (wpos<BUFFLEN) wpos++;
-//     textlen=wpos;
-//     if (c==13 || c==10 || c==12) wpos=0;
-    // </magic>
 }
 
 

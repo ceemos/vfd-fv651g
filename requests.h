@@ -20,17 +20,9 @@
 /* Request that the device sends back wValue and wIndex. This is used with
  * random data to test the reliability of the communication.
  */
-#define CUSTOM_RQ_SET_STATUS    1
-/* Set the LED status. Control-OUT.
- * The requested status is passed in the "wValue" field of the control
- * transfer. No OUT data is sent. Bit 0 of the low byte of wValue controls
- * the LED.
+#define CUSTOM_RQ_SET_TEXT    1
+/* Set Content of the Text Buffer
  */
 
-#define CUSTOM_RQ_GET_STATUS    2
-/* Get the current LED status. Control-IN.
- * This control transfer involves a 1 byte data phase where the device sends
- * the current status to the host. The status is in bit 0 of the byte.
- */
 
 #endif /* __REQUESTS_H_INCLUDED__ */
