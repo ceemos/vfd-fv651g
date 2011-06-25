@@ -23,6 +23,11 @@
 #define CUSTOM_RQ_SET_TEXT    1
 /* Set Content of the Text Buffer
  */
+#define CUSTOM_RQ_CLEAR    2
+/* Clear Display
+ */
+
+
 
 
 #endif /* __REQUESTS_H_INCLUDED__ */

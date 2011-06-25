@@ -26,13 +26,13 @@ void initio(void) {
     PORTD=0;
     DDRB=(1<<PWM_OUT)|(1<<FIL_ENA);
     PORTB=0;
-    
+#if USE_SCROLL
     TCCR1A=0;
     TCCR1B=(1<<WGM12)|(1<<CS12)|(1<<CS10);
     //Timer1 ticks at 11KHz.
     OCR1A=11000/3; //1/3 second
     TIMSK=(1<<OCIE1A);
-
+#endif
 }
 
 //Shift one bit into the shiftregister chain.

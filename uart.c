@@ -8,13 +8,16 @@
 //Buffer for incoming text
 volatile uint8_t text[BUFFLEN];
 
-volatile uint16_t scrollpos;
+volatile uint8_t currentPosition;
 
+#if USE_SCROLL
+volatile uint16_t scrollpos;
+#endif
 // Value of Digit 1G (the symbols)
 volatile uint8_t special;
 
 //Initial text
-char inittext[] PROGMEM="usbVFD: FV651g";
+char inittext[] PROGMEM="FV651g";
 
 uint16_t font[] PROGMEM={
     0b00000000000000, //sp
@@ -129,6 +132,14 @@ void inittxt(void) {
 
 }
 
+inline void resetText(){
+  currentPosition = 0;
+}
+
+inline void writeChar(char c){
+  text[currentPosition++] = c;
+}
+
 //Returns the character that should be on the pos't digit position of the VFD
 //according to the latest scrollpos- and text[]-contents.
 //Includes an overlap of OVERLAP spaces between end and begin of scrolling text
@@ -136,19 +147,26 @@ uint16_t getcharat(char pos) {
   if(pos == 10){
     return special << 8;
   }
+#if USE_SCROLL  
   uint8_t c = text[pos + scrollpos];
   if(!c){
     scrollpos = 0;
     c = 32;
   }
+#else 
+  uint8_t c = text[pos];
+  if(!c) c = 32;
+#endif
   return pgm_read_word(&font[(int)(c-32)]);
   //return text[(int) pos];
 }
 
+#if USE_SCROLL
 //Timer interrupt which advances the scroll position by one.
 ISR(TIMER1_COMPA_vect) {
     scrollpos++;
 }
+#endif
 
 
 
