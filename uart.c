@@ -117,13 +117,12 @@ uint16_t font[] PROGMEM={
 
 //Routine to init the text subsystem
 void inittxt(void) {
-
     int t=0;
     char c;
     //Copypaste inittext to text buffer
     do {
 	c=pgm_read_byte(&inittext[t]);
-	text[t++]=pgm_read_word(&font[(int)(c-32)]);
+	text[t++]=c;
     } while (c!=0);
     
     special = 0b100; // dcc Symbol

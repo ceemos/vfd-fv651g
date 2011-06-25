@@ -30,7 +30,7 @@ void initio(void) {
     TCCR1A=0;
     TCCR1B=(1<<WGM12)|(1<<CS12)|(1<<CS10);
     //Timer1 ticks at 11KHz.
-    OCR1A=1100/3; //1/3 second
+    OCR1A=11000/3; //1/3 second
     TIMSK=(1<<OCIE1A);
 
 }
