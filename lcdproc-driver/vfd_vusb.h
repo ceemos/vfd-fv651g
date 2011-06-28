@@ -1,7 +1,7 @@
 /*
  * vfd_vusb Driver
  *
- * Copyright (C) 2011 Marcel Schneider, m.schneider.neuffen@gmail.com
+ * Copyright (C) 2011 Marcel Schneider, m.schneider.neuffen(ät)gmail.com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301
  *
  * Based on work from:
- *   shuttleVFD Driver
+ *   shuttleVFD Driver 
  */
 
 #ifndef VFD_VUSB_H

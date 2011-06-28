@@ -34,14 +34,17 @@ usbRequest_t    *rq = (void *)data;
     }else */ if(rq->bRequest == CUSTOM_RQ_SET_TEXT){
         resetText();                // initialize position index
         bytesRemaining = rq->wLength.word;  // store the amount of data requested
-        if(bytesRemaining > BUFFLEN) // limit to buffer size
-            bytesRemaining = BUFFLEN;
+        if(bytesRemaining > sizeof(text)) // limit to buffer size
+            bytesRemaining = sizeof(text);
         return USB_NO_MSG;        // tell driver to use usbFunctionWrite()
-    }/*else if(rq->bRequest == CUSTOM_RQ_CLEAR){
+    } /*else if(rq->bRequest == CUSTOM_RQ_CLEAR){
       resetText();
       writeChar(0);
       return 0;
-    }*/
+    }*/ else if(rq->bRequest == CUSTOM_RQ_SYMBOL){
+      special = rq->wValue.bytes[0];
+      return 0;
+    }
     return 0;   /* default for not implemented requests: return no data back to host */
 }
 
@@ -81,8 +84,9 @@ int main(void) {
 	for (d=0; d<11; d++) {
 	    v=getcharat(d);
 	    setvfd(d,v);
-	    usbPoll();
 	    _delay_ms(1);
 	}
+	usbPoll();
+	handlepwm();
     }
 }

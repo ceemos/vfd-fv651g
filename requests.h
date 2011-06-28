@@ -26,6 +26,9 @@
 #define CUSTOM_RQ_CLEAR    2
 /* Clear Display
  */
+#define CUSTOM_RQ_SYMBOL    3
+/* Set Symbol bits (G11) to iValue
+ */
 
 
 
