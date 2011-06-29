@@ -85,8 +85,9 @@ int main(void) {
 	    v=getcharat(d);
 	    setvfd(d,v);
 	    _delay_ms(1);
+	    handlepwm();
+	    usbPoll();
 	}
-	usbPoll();
-	handlepwm();
+	
     }
 }

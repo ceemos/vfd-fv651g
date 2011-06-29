@@ -26,6 +26,9 @@ void inittxt(void) {
     for(i = 0; i < BUFFLEN; i++){
       text[i] = 0;
     }
+    text[1] = 0xFF;
+    text[3] = 0xFF;
+    text[5] = 0xFF;
     special = 0b00; 
 
 }
