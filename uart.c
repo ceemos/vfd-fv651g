@@ -26,9 +26,15 @@ void inittxt(void) {
     for(i = 0; i < BUFFLEN; i++){
       text[i] = 0;
     }
-    text[1] = 0xFF;
-    text[3] = 0xFF;
-    text[5] = 0xFF;
+    // Intial Text - it's not as simple as it was in non-Rawmode
+    text[0] = 0b0100001000010100; // F
+    text[1] = 0b0101000000110000; // V
+    text[2] = 0b1110001100010100; // 6
+    text[3] = 0b1010001100010100; // 5
+    text[4] = 0b0010000000001000; // 1
+    text[5] = 0b1110100100010100; // G
+    
+    
     special = 0b00; 
 
 }
