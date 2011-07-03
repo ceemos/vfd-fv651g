@@ -1,0 +1,262 @@
+# EESchema Netlist Version 1.1 created  So 03 Jul 2011 18:44:43 CEST
+(
+ ( /4E1057F2 D5 D1 DIODESCH
+  ( 1 N-000008 )
+  ( 2 +12V )
+ )
+ ( /4E105ACD D5 D2 DIODE
+  ( 1 +5V )
+  ( 2 N-000002 )
+ )
+ ( /4E105AC4 D5 D3 DIODE
+  ( 1 N-000002 )
+  ( 2 N-000045 )
+ )
+ ( /4E105B02 D5 D4 DIODE
+  ( 1 N-000045 )
+  ( 2 N-000020 )
+ )
+ ( /4E1052A7 DIL20 IC1 ATTINY2313-P
+  ( 1 N-000045 )
+  ( 2 N-000052 )
+  ( 3 ? )
+  ( 4 N-000050 )
+  ( 5 N-000049 )
+  ( 6 N-000048 )
+  ( 7 ? )
+  ( 8 ? )
+  ( 9 ? )
+  ( 10 GND )
+  ( 11 ? )
+  ( 12 ? )
+  ( 13 N-000006 )
+  ( 14 N-000073 )
+  ( 15 ? )
+  ( 16 ? )
+  ( 17 ? )
+  ( 18 ? )
+  ( 19 ? )
+  ( 20 N-000045 )
+ )
+ ( /4E105E89 USB_B J1 USB_2
+  ( 1 +5V )
+  ( 2 N-000004 )
+  ( 3 N-000076 )
+  ( 4 GND )
+ )
+ ( /4E10576C R7 L1 INDUCTOR
+  ( 1 +5V )
+  ( 2 N-000008 )
+ )
+ ( /4E105F87 SIL-26 P1 CONN_30
+  ( 1 N-000029 )
+  ( 2 N-000075 )
+  ( 3 N-000028 )
+  ( 4 N-000019 )
+  ( 5 N-000053 )
+  ( 6 N-000009 )
+  ( 7 N-000054 )
+  ( 8 N-000017 )
+  ( 9 N-000035 )
+  ( 10 N-000016 )
+  ( 11 N-000034 )
+  ( 12 N-000012 )
+  ( 13 N-000030 )
+  ( 14 N-000010 )
+  ( 15 N-000031 )
+  ( 16 N-000025 )
+  ( 17 N-000067 )
+  ( 18 N-000024 )
+  ( 19 N-000066 )
+  ( 20 N-000015 )
+  ( 21 N-000013 )
+  ( 22 N-000011 )
+  ( 23 N-000064 )
+  ( 24 N-000018 )
+  ( 25 N-000026 )
+  ( 26 N-000055 )
+  ( 27 N-000072 )
+  ( 28 N-000023 )
+  ( 29 N-000022 )
+  ( 30 N-000014 )
+ )
+ ( /4E105F9A SIL-2 P2 CONN_2
+  ( 1 N-000020 )
+  ( 2 N-000020 )
+ )
+ ( /4E105FA3 SIL-2 P3 CONN_2
+  ( 1 GND )
+  ( 2 GND )
+ )
+ ( /4E10558B TO92-EBC Q1 BC337
+  ( B N-000005 )
+  ( C N-000008 )
+  ( E GND )
+ )
+ ( /4E105511 TO92-EBC Q2 BC237
+  ( B N-000059 )
+  ( C N-000056 )
+  ( E GND )
+ )
+ ( /4E10550E TO92-EBC Q3 BC237
+  ( B N-000062 )
+  ( C N-000071 )
+  ( E GND )
+ )
+ ( /4E105506 TO92-EBC Q4 BC237
+  ( B N-000058 )
+  ( C N-000074 )
+  ( E GND )
+ )
+ ( /4E10557C R5 R1 1K5
+  ( 1 +5V )
+  ( 2 N-000004 )
+ )
+ ( /4E105582 R5 R2 1M
+  ( 1 N-000076 )
+  ( 2 GND )
+ )
+ ( /4E105573 R5 R3 68
+  ( 1 N-000052 )
+  ( 2 N-000076 )
+ )
+ ( /4E105579 R5 R4 68
+  ( 1 N-000048 )
+  ( 2 N-000004 )
+ )
+ ( /4E105595 R5 R5 1K
+  ( 1 N-000073 )
+  ( 2 N-000005 )
+ )
+ ( /4E10554F R5 R6 33K
+  ( 1 N-000059 )
+  ( 2 ? )
+ )
+ ( /4E105555 R5 R7 33K
+  ( 1 N-000062 )
+  ( 2 ? )
+ )
+ ( /4E10555A R5 R8 33K
+  ( 1 N-000058 )
+  ( 2 ? )
+ )
+ ( /4E105539 R5 R9 10K
+  ( 1 +12V )
+  ( 2 N-000056 )
+ )
+ ( /4E10553F R5 R10 10K
+  ( 1 +12V )
+  ( 2 N-000071 )
+ )
+ ( /4E105546 R5 R11 10K
+  ( 1 +12V )
+  ( 2 N-000074 )
+ )
+ ( /4E10578C RV2X4 RV1 POT
+  ( 1 GND )
+  ( 2 N-000006 )
+  ( 3 +12V )
+ )
+ ( /4E105756 HC-49V X1 12M
+  ( 1 N-000049 )
+  ( 2 N-000050 )
+ )
+)
+*
+{ Allowed footprints by component:
+$component D1
+ D?
+ S*
+$endlist
+$component D2
+ D?
+ S*
+$endlist
+$component D3
+ D?
+ S*
+$endlist
+$component D4
+ D?
+ S*
+$endlist
+$component Q1
+ TO92-EBC
+$endlist
+$component Q2
+ TO92-EBC
+$endlist
+$component Q3
+ TO92-EBC
+$endlist
+$component Q4
+ TO92-EBC
+$endlist
+$component R1
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R2
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R3
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R4
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R5
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R6
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R7
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R8
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R9
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R10
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$component R11
+ R?
+ SM0603
+ SM0805
+ R?-*
+$endlist
+$endfootprintlist
+}
