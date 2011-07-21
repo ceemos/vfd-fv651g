@@ -1,2 +1,2 @@
-A controller for the Vacuum Fluorecent Display Futaba FV651G, available at Pollin (www.pollin.de), using an ATTINY2313 µC and 4094 shift registers.
+A controller for the Vacuum Fluorecent Display Futaba FV651G, available at Pollin (www.pollin.de), using an ATTINY2313 µC and 4094 shift registers. It implements a vUSB interface to be controlled by PC applications, such as LCDproc. A driver module for LCDproc is also included.
 Based on Jeroen Domburgs work: http://spritesmods.com/?art=vfdcontroller
