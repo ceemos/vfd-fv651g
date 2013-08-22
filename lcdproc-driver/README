@@ -1,0 +1,7 @@
+To build ths driver, you can either:
+- Add it to the autoconf build system.
+- Compile it separately:
+  Copy config.h and server/driver/{lcd.h,report.h} from lcdproc to this folder
+  Complie with:
+  gcc -fPIC --shared -o vfd_vusb.so *.c -lusb -DHAVE_CONFIG_H
+  Then copy vfd_vusb.so to /usr/lib/lcdproc/ or where your lcdproc drivers live.
